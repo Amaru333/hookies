@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <div className="flex h-full">
-      <div className="w-96">
+      <div className="min-w-48 sticky top-20 h-screen">
         <Sidebar />
       </div>
       <div className="px-16">{children}</div>

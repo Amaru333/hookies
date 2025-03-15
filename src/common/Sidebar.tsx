@@ -18,7 +18,7 @@ function Sidebar() {
               <Link
                 key={subIndex}
                 href={"/components/" + subItem.slug}
-                className={`px-2 py-1 rounded flex w-full hover:bg-muted ${
+                className={`px-2 py-1 rounded flex w-full transition-all hover:bg-muted ${
                   pathname === "/components/" + subItem.slug ? "bg-muted" : ""
                 }`}
               >
