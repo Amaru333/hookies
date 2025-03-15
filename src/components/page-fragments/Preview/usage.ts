@@ -1,31 +1,22 @@
-export const USESHORTCUT_USAGE = `import React, { useState } from "react";
-import { useShortcut } from "@hookies/key-bindings";
+export const USEPREVIEW_USAGE = `import React, { useState } from "react";
+import { usePreview } from "@hookies/preview";
 
-const App = () => {
-  const [message, setMessage] = useState("Press Ctrl+8");
+const ImageUploader = () => {
+  const [data, setData] = useState<{ image?: File }>({});
+  const previewImageUrl = usePreview(data.image);
 
-  useShortcut(["Ctrl", "8"], () => setMessage("Shortcut Triggered!"), { preventDefault: true });
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files.length > 0) {
+      setData({ image: event.target.files[0] });
+    }
+  };
 
-  return <h1>{message}</h1>;
+  return (
+    <div>
+      <input type="file" accept="image/*" onChange={handleFileChange} />
+      {previewImageUrl && <img src={previewImageUrl} alt="Preview" width="200" />}
+    </div>
+  );
 };
 
-export default App;`;
-
-export const USESHORTCUTEXTENDED_USAGE = `
-import { useState } from "react";
-import { useShortcutExtended } from "@hookies/key-bindings";
-
-const App = () => {
-  const [message, setMessage] = useState("Press A + S");
-
-  useShortcutExtended(["a", "s"], () => setMessage("Shortcut Triggered!"), { preventDefault: true });
-
-  return <h1>{message}</h1>;
-};
-
-export default App;
-`;
-
-export const GETOS_USAGE = `import { getOS } from "@hookies/key-bindings";
-
-const os = getOS(); // MacOS, Windows, Linux, Android, iOS, Unknown`;
+export default ImageUploader;`;
