@@ -1,9 +1,9 @@
-import KeyBindingsFragment from "@/components/page-fragments/KeyBindings";
+import PreviewFragment from "@/components/page-fragments/Preview";
 import { SIDEBAR } from "@/constants/sidebar";
 import { Metadata } from "next";
 import React from "react";
 
-const metaDataDetails = SIDEBAR[0].items.find((item) => item.slug === "key-bindings");
+const metaDataDetails = SIDEBAR[0].items.find((item) => item.slug === "preview");
 
 export const metadata: Metadata = {
   title: `${metaDataDetails?.title} - Hookies`,
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   keywords: metaDataDetails?.tags,
 };
 
-function KeyBindings() {
-  return <KeyBindingsFragment />;
+function Preview() {
+  return <PreviewFragment />;
 }
 
-export default KeyBindings;
+export default Preview;
