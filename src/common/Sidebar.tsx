@@ -7,7 +7,6 @@ import React from "react";
 
 function Sidebar() {
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <div>
       {SIDEBAR.map((item, index) => (
